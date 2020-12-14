@@ -40,7 +40,7 @@ Tb = [qgoal];
 % x = L1 * cos(theta1) + L2 * cos(theta1 + theta2) + L3 * cos(theta1+2+3)
 % y = L1 * sin(theta1) + L2 * sin(theta1 + theta2) + L3 * sin(theta1+2+3)
 %%
-%     RRT
+%     RRT - draw the whole tree
 maxIter = 1000;
 success = 0;
 step_length=5;  
@@ -59,4 +59,6 @@ for i = 1 : maxIter
     [Ta,Tb] = SWAP(Ta, Tb);    
 
 end
-
+%%
+%     RRT - draw a path from qstart to qgoal
+[success, q_connect, Ta,Tb] = RRT_Connect(qstart, qgoal, 1000, 4, circles)
